@@ -24,7 +24,7 @@ const Index = () => {
           <Partners />
         </main>
         <footer className="border-t border-border/50 py-10 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} ТОП-75. Все права защищены.
+          © {new Date().getFullYear()} ТОП-12131233200. Все права защищены.
         </footer>
       </div>
     </>
