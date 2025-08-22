@@ -5,6 +5,7 @@ import heroImage from "@/assets/hero-top75.jpg";
 import { Button } from "@/components/ui/button";
 import NumberTicker from "@/components/common/NumberTicker";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // --- Компонент частиц (Значительно улучшен) ---
 const InteractiveParticles: React.FC = () => {
@@ -108,6 +109,7 @@ const InteractiveParticles: React.FC = () => {
 // --- Основной компонент Hero ---
 const Hero: React.FC = () => {
   const [mouse, ref] = useMouse();
+  const { t } = useLanguage();
 
   // Настройки для анимаций Framer Motion
   const containerVariants = {
@@ -128,7 +130,6 @@ const Hero: React.FC = () => {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
       },
     },
   };
@@ -173,24 +174,24 @@ const Hero: React.FC = () => {
       
       <div className="relative z-10 container mx-auto px-6 py-24 text-center flex flex-col items-center">
         <motion.p variants={itemVariants} className="uppercase tracking-widest text-sm text-muted-foreground mb-4">
-          Девятый ежегодный рейтинг
+          {t('hero.subtitle')}
         </motion.p>
         <motion.h1
           variants={itemVariants}
           className={cn("text-[12vw] leading-none font-extrabold md:text-8xl tracking-tight", "drop-shadow-2xl")}
         >
-          ТОП-75
+          {t('hero.title')}
         </motion.h1>
         <motion.div variants={itemVariants} className="mt-6 text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
-          ВЛИЯТЕЛЬНЫХ ЛИЦ НЕФТЕГАЗОВОЙ ОТРАСЛИ КАЗАХСТАНА
+          {t('hero.description')}
         </motion.div>
         
         <motion.div variants={itemVariants} className="mt-10 flex items-center justify-center gap-4">
           <Button asChild variant="premium" size="lg">
-            <a href="#rating" aria-label="Смотреть рейтинг">Смотреть рейтинг</a>
+            <a href="#rating" aria-label={t('hero.viewRating')}>{t('hero.viewRating')}</a>
           </Button>
           <a href="#method" className="story-link text-foreground/90 transition-colors hover:text-primary">
-            Методика и тренды
+            {t('hero.methodology')}
           </a>
         </motion.div>
       </div>

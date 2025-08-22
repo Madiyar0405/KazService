@@ -3,8 +3,12 @@ import Hero from "@/components/sections/Hero";
 import Methodology from "@/components/sections/Methodology";
 import Ranking from "@/components/sections/Ranking";
 import Partners from "@/components/sections/Partners";
+import LanguageSwitcher from "@/components/common/LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
+  const { t } = useLanguage();
+  
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -17,6 +21,7 @@ const Index = () => {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="min-h-screen bg-background text-foreground">
+        <LanguageSwitcher />
         <Hero />
         <main>
           <Methodology />
@@ -24,7 +29,7 @@ const Index = () => {
           <Partners />
         </main>
         <footer className="border-t border-border/50 py-10 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} ТОП-12131233200. Все права защищены.
+          © {new Date().getFullYear()} ТОП-12131233200. {t('footer.copyright')}
         </footer>
       </div>
     </>
