@@ -2,32 +2,33 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Parallax } from "@/components/common/Parallax";
 import { Database, Users, Ratio, FileText } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // --- Данные для слоев методики ---
-const methodologyCriteria = [
+const getMethodologyCriteria = (t: (key: string) => string) => [
   {
     icon: Database,
-    title: "Как оценивались участники рейтинга?",
+    title: t('methodology.criteria.evaluation.title'),
     value: "30+",
-    description: "Более 20 экспертов оценили 130 кандидатов по влиянию в отрасли, учитывая стоимость и долю компании на рынке, налоги, штат и значимость. Кадровые изменения этого года повлияли на результаты. **Экспертный совет:** 25 аналитиков и ветеранов отрасли анонимно оценивают участников.",
+    description: t('methodology.criteria.evaluation.description'),
   },
   {
     icon: Users,
-    title: "Экспертный совет",
+    title: t('methodology.criteria.experts.title'),
     value: "25",
-    description: "25 ведущих аналитиков и ветеранов нефтегазовой отрасли анонимно оценивают кандидатов.",
+    description: t('methodology.criteria.experts.description'),
   },
   {
     icon: Ratio,
-    title: "Весовые коэффициенты",
+    title: t('methodology.criteria.weights.title'),
     value: "30+",
-    description: "Более 30 параметров сгруппированы в индексы: финансовое влияние, операционный контроль и стратегическое видение.",
+    description: t('methodology.criteria.weights.description'),
   },
-    {
+  {
     icon: FileText,
-    title: "Итоговый балл",
+    title: t('methodology.criteria.result.title'),
     value: "ТОП-75",
-    description: "Результаты объединяются в единый взвешенный рейтинг, определяющий самых влиятельных фигур индустрии.",
+    description: t('methodology.criteria.result.description'),
   },
 ];
 
@@ -58,6 +59,7 @@ const MethodologyLayer = ({ criterion, index, progress, range }) => {
 
 // --- Основной компонент Methodology ---
 const Methodology: React.FC = () => {
+  const { t } = useLanguage();
   const targetRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -66,6 +68,8 @@ const Methodology: React.FC = () => {
 
   // Анимация для "заполнения" центральной линии
   const pipelineFill = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  
+  const methodologyCriteria = getMethodologyCriteria(t);
 
   return (
     <section id="method" ref={targetRef} className="relative h-[400vh] bg-background">
@@ -85,8 +89,8 @@ const Methodology: React.FC = () => {
 
         {/* Заголовок секции */}
         <div className="absolute top-24 text-center">
-            <h2 className="text-3xl md:text-5xl font-extrabold leading-tight">Как мы определяем влияние</h2>
-            <p className="mt-4 text-lg text-muted-foreground">Процесс, основанный на данных и экспертизе</p>
+            <h2 className="text-3xl md:text-5xl font-extrabold leading-tight">{t('methodology.title')}</h2>
+            <p className="mt-4 text-lg text-muted-foreground">{t('methodology.subtitle')}</p>
         </div>
 
         {/* Контейнер для "слоев" методики */}

@@ -4,6 +4,7 @@ import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ChevronUp, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import p1 from "@/assets/portraits/p1.jpg";
 import p2 from "@/assets/portraits/p2.jpg";
 import p3 from "@/assets/portraits/p3.jpg";
@@ -181,6 +182,7 @@ const basePeople: Omit<Person, 'id' | 'photo'>[] = [
 ];
 
 const Ranking: React.FC = () => {
+  const { t } = useLanguage();
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
@@ -226,14 +228,14 @@ const Ranking: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="mb-8 flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
           <div className="flex-grow">
-            <h2 className="text-3xl md:text-5xl font-extrabold leading-tight">Сам рейтинг</h2>
-            <p className="text-muted-foreground mt-2">Топ участников с краткими досье</p>
+            <h2 className="text-3xl md:text-5xl font-extrabold leading-tight">{t('ranking.title')}</h2>
+            <p className="text-muted-foreground mt-2">{t('ranking.subtitle')}</p>
           </div>
           
           <div className="w-full md:w-auto">
             <Input
               type="text"
-              placeholder="Поиск по имени, должности..."
+              placeholder={t('ranking.search.placeholder')}
               value={searchQuery}
               onChange={(e) => {
                 setSearchQuery(e.target.value);
@@ -268,30 +270,30 @@ const Ranking: React.FC = () => {
       {p.trend === 'down' && <ChevronDown className="ml-1.5 h-5 w-5 text-red-500" strokeWidth={3} />}
     </div>
 
-    <div className="text-xs lg:text-sm text-muted-foreground mt-1 leading-snug truncate">{p.position}</div>
-    <div className="text-xs lg:text-sm text-muted-foreground/80 leading-snug truncate">{p.workplace}</div>
-    <div className="mt-2">
-      <Button variant="premium" size="sm">Подробнее</Button>
-    </div>
+                    <div className="text-xs lg:text-sm text-muted-foreground mt-1 leading-snug truncate">{p.position}</div>
+                    <div className="text-xs lg:text-sm text-muted-foreground/80 leading-snug truncate">{p.workplace}</div>
+                    <div className="mt-2">
+                      <Button variant="premium" size="sm">{t('ranking.modal.details')}</Button>
+                    </div>
 </div>
                     </div>
                   </CardContent>
                 </Card>
               </DialogTrigger>
-              <DialogContent className="max-h-[85vh] overflow-y-auto p-4 sm:p-6">
-    <DialogTitle className="flex items-center text-xl sm:text-2xl">
-        <span>{p.name}</span>
-        {p.trend === 'up' && <ChevronUp className="ml-2 h-5 w-5 sm:h-6 sm:w-6 text-green-500" strokeWidth={3} />}
-        {p.trend === 'down' && <ChevronDown className="ml-2 h-5 w-5 sm:h-6 sm:w-6 text-red-500" strokeWidth={3} />}
-    </DialogTitle>
-    <DialogDescription className="mt-1 text-sm sm:text-base">
-        {p.position} в "{p.workplace}"
-    </DialogDescription>
-    <div className="text-sm sm:text-base leading-relaxed mt-4">
-        <span className="block text-primary font-semibold mb-1">Почему в рейтинге: </span>
-        {p.reason}
-    </div>
-</DialogContent>
+                <DialogContent className="max-h-[85vh] overflow-y-auto p-4 sm:p-6">
+                  <DialogTitle className="flex items-center text-xl sm:text-2xl">
+                      <span>{p.name}</span>
+                      {p.trend === 'up' && <ChevronUp className="ml-2 h-5 w-5 sm:h-6 sm:w-6 text-green-500" strokeWidth={3} />}
+                      {p.trend === 'down' && <ChevronDown className="ml-2 h-5 w-5 sm:h-6 sm:w-6 text-red-500" strokeWidth={3} />}
+                  </DialogTitle>
+                  <DialogDescription className="mt-1 text-sm sm:text-base">
+                      {p.position} в "{p.workplace}"
+                  </DialogDescription>
+                  <div className="text-sm sm:text-base leading-relaxed mt-4">
+                      <span className="block text-primary font-semibold mb-1">{t('ranking.modal.reason')}: </span>
+                      {p.reason}
+                  </div>
+                </DialogContent>
             </Dialog>
           ))}
         </div>
