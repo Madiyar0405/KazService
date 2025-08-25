@@ -73,6 +73,14 @@ const translations: Record<Language, Record<string, string>> = {
     'people.3.position': 'Генеральный директор, Председатель Правления',
     'people.3.workplace': 'ТОО "PSA"',
     'people.3.reason': 'Бекет Темиртаевич Избастин – генеральный директор и председатель правления ТОО «PSA», уполномоченной организации, представляющей интересы Республики Казахстан в рамках соглашений о разделе продукции по проектам Кашаган, Карачаганак и Дунга. Под его руководством PSA реализует стратегию по оптимизации затрат на крупных проектах, управляет многомиллиардными бюджетами и активно отстаивает национальные интересы в отношениях с международными инвесторами. Среди ключевых достижений – успешный запуск пятого компрессора обратной закачки газа на Карачаганакском месторождении, позволивший увеличить эффективность добычи и уровень местного содержания. Также при его участии PSA продвигает реформу тендерных процедур, направленную на повышение участия казахстанских компаний в нефтегазовых контрактах.',
+    'people.4.name': 'Магзум Мирзагалиев',
+    'people.4.position': 'Советник Президента Республики Казахстан',
+    'people.4.workplace': 'Администрация Президента',
+    'people.4.reason': 'С 13 февраля 2025 года Магзум Мирзагалиев занимает должность советника Президента Республики Казахстан, где курирует вопросы в сфере энергетики и устойчивого развития. До этого в период с апреля 2022 по май 2024 года он возглавлял АО «НК «КазМунайГаз». Под его руководством были реализованы проекты по цифровизации, оптимизации производственных процессов и усилению экспортного потенциала компании. Ранее занимал должности министра энергетики, министра экологии, геологии и природных ресурсов, а также вице-министра нефти и газа и заместителя министра энергетики. Имеет более 20 лет опыта работы в отрасли, включая международные нефтесервисные компании и национальные предприятия.',
+    'people.5.name': 'Алибек Жамауов',
+    'people.5.position': 'Вице-министр',
+    'people.5.workplace': 'Министерство энергетики РК',
+    'people.5.reason': 'С 1 июля 2023 года Алибек Жамауов занимает должность вице-министра энергетики Республики Казахстан. До этого с 2020 года он работал заместителем генерального директора по контрактам, реализации и ревизии счетов нефтяных операций в ТОО «PSA», где курировал ключевые вопросы по проектам Карачаганак и Кашаган. В своей текущей роли он отвечает за координацию крупных инфраструктурных проектов в энергетике, включая развитие газоперерабатывающих мощностей и модернизацию НПЗ. Участвует в переговорах с международными партнерами, курирует вопросы тендерных процедур и локализации, а также принимает участие в формировании политики по развитию квалификаций в отрасли.',
     
     // Language switcher
     'language.switch': 'Switch to English',
@@ -141,6 +149,14 @@ const translations: Record<Language, Record<string, string>> = {
     'people.3.position': 'General Director, Chairman of the Board',
     'people.3.workplace': 'PSA LLP',
     'people.3.reason': 'Beket Temirtayevich Izbastin is the general director and chairman of the board of PSA LLP, an authorized organization representing the interests of the Republic of Kazakhstan under production sharing agreements for the Kashagan, Karachaganak and Dunga projects. Under his leadership, PSA implements a strategy to optimize costs on large projects, manages multi-billion budgets and actively defends national interests in relations with international investors. Among the key achievements is the successful launch of the fifth gas reinjection compressor at the Karachaganak field, which allowed to increase production efficiency and the level of local content. Also with his participation, PSA promotes the reform of tender procedures aimed at increasing the participation of Kazakhstani companies in oil and gas contracts.',
+    'people.4.name': 'Magzum Mirzagaliyev',
+    'people.4.position': 'Advisor to the President of the Republic of Kazakhstan',
+    'people.4.workplace': 'Presidential Administration',
+    'people.4.reason': 'Since February 13, 2025, Magzum Mirzagaliyev has been serving as Advisor to the President of the Republic of Kazakhstan, where he oversees issues in the field of energy and sustainable development. Prior to this, from April 2022 to May 2024, he headed JSC "NC "KazMunayGas". Under his leadership, projects on digitalization, optimization of production processes and strengthening the export potential of the company were implemented. Previously, he held positions as Minister of Energy, Minister of Ecology, Geology and Natural Resources, as well as Deputy Minister of Oil and Gas and Deputy Minister of Energy. He has more than 20 years of experience in the industry, including international oil service companies and national enterprises.',
+    'people.5.name': 'Alibek Zhamauov',
+    'people.5.position': 'Deputy Minister',
+    'people.5.workplace': 'Ministry of Energy of the Republic of Kazakhstan',
+    'people.5.reason': 'Since July 1, 2023, Alibek Zhamauov has held the position of Deputy Minister of Energy of the Republic of Kazakhstan. Prior to this, since 2020, he worked as Deputy General Director for contracts, implementation and audit of oil operations accounts at PSA LLP, where he supervised key issues on the Karachaganak and Kashagan projects. In his current role, he is responsible for coordinating major infrastructure projects in energy, including the development of gas processing capacities and modernization of refineries. He participates in negotiations with international partners, oversees tender procedures and localization issues, and also participates in the formation of policy for skills development in the industry.',
     
     // Language switcher
     'language.switch': 'Переключить на русский',

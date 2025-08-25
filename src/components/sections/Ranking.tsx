@@ -124,6 +124,20 @@ const getBasePeople = (t: (key: string) => string): Omit<Person, 'id' | 'photo'>
     reason: t('people.3.reason'), 
     trend: 'up' as const 
   },
+  { 
+    name: t('people.4.name'), 
+    position: t('people.4.position'), 
+    workplace: t('people.4.workplace'), 
+    reason: t('people.4.reason'), 
+    trend: 'up' as const 
+  },
+  { 
+    name: t('people.5.name'), 
+    position: t('people.5.position'), 
+    workplace: t('people.5.workplace'), 
+    reason: t('people.5.reason'), 
+    trend: 'up' as const 
+  },
 ];
 
 // Исходный массив данных ВСЕХ участников рейтинга с трендами (русские данные как fallback)
@@ -216,10 +230,10 @@ const Ranking: React.FC = () => {
     // Получаем переведенные данные для первых 3 человек
     const translatedPeople = getBasePeople(t);
     
-    // Комбинируем переведенные данные с оригинальными (начиная с 4-го человека)
+    // Комбинируем переведенные данные с оригинальными (начиная с 6-го человека)
     const combinedPeople = [
       ...translatedPeople,
-      ...basePeople.slice(3) // Остальные люди пока остаются на русском
+      ...basePeople.slice(5) // Остальные люди пока остаются на русском
     ];
     
     return combinedPeople.map((person, index) => ({
