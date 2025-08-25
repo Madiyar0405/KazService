@@ -65,6 +65,22 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Footer
     'footer.copyright': 'Все права защищены.',
+
+    // Persons data
+    'person.1.name': 'Ерлан Аккенженов',
+    'person.1.position': 'Министр',
+    'person.1.workplace': 'Министерство энергетики РК',
+    'person.1.reason': 'Девятый ежегодный рейтинг на этот раз возглавил Ерлан Аккенженов. С марта 2025 года Ерлан Аккенженов возглавил Министерство энергетики РК. Его карьера охватывает более двух десятилетий в сфере нефтяной торговли, переработки и государственного управления. Он прошёл путь от трейдера сырой нефти в Chevron Texaco в Великобритании до топ-менеджера международной группы KMG International, отвечая за экспорт, трейдинг и розничную реализацию нефтепродуктов в Румынии, Болгарии и Сингапуре. В Казахстане занимал ключевые должности в структуре «КазМунайГаз», а с 2023 по 2025 годы был вице-министром энергетики. Возглавив министерство, сосредоточен на развитии экспортной инфраструктуры, цифровизации энергетики и усилении роли местного содержания в отраслевых проектах. Как министр, он активно продвигает стратегию национальных интересов в выборе уровня добычи нефти, публично заявив, что Казахстан будет определять производство исходя из внутренних приоритетов, а не строго следовать квотам OPEC+',
+
+    'person.2.name': 'Тимур Кулибаев',
+    'person.2.position': 'Председатель',
+    'person.2.workplace': 'Almex Holding Group',
+    'person.2.reason': 'В 2025 году поднялся на одну позицию. Остается одной из ключевых фигур в развитии нефтегазовой отрасли Казахстана и одним из наиболее влиятельных бизнесменов страны. Является бенефициаром десятков компаний в добыче, нефтесервисе и машиностроении с совокупной численностью персонала свыше 10 000 человек. По данным Forbes его состояние вместе с супругой оценивается примерно в 5,3 млрд долларов. Контролирует важные финансовые инструменты, включая Халык Банк, который остается одним из крупнейших кредиторов нефтегазового сектора. Рост влияния частного капитала и расширение портфеля активов усилили его позиции и обеспечили движение вверх в рейтинге. Дополнительным фактором являются устойчивые международные контакты, включая страны ОПЕК, а также прочные связи с европейскими инвесторами и глубокое понимание энергетической системы.',
+
+    'person.3.name': 'Бекет Избастин',
+    'person.3.position': 'Генеральный директор, Председатель Правления',
+    'person.3.workplace': 'ТОО "PSA"',
+    'person.3.reason': 'Бекет Темиртаевич Избастин – генеральный директор и председатель правления ТОО «PSA», уполномоченной организации, представляющей интересы Республики Казахстан в рамках соглашений о разделе продукции по проектам Кашаган, Карачаганак и Дунга. Под его руководством PSA реализует стратегию по оптимизации затрат на крупных проектах, управляет многомиллиардными бюджетами и активно отстаивает национальные интересы в отношениях с международными инвесторами. Среди ключевых достижений – успешный запуск пятого компрессора обратной закачки газа на Карачаганакском месторождении, позволивший увеличить эффективность добычи и уровень местного содержания. Также при его участии PSA продвигает реформу тендерных процедур, направленную на повышение участия казахстанских компаний в нефтегазовых контрактах.',
   },
   en: {
     // Hero
@@ -119,6 +135,22 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Footer
     'footer.copyright': 'All rights reserved.',
+
+    // Persons data
+    'person.1.name': 'Yerlan Akkenzhanov',
+    'person.1.position': 'Minister',
+    'person.1.workplace': 'Ministry of Energy of the Republic of Kazakhstan',
+    'person.1.reason': 'The ninth annual rating was topped by Yerlan Akkenzhanov this time. Since March 2025, Yerlan Akkenzhanov has headed the Ministry of Energy of the Republic of Kazakhstan. His career spans more than two decades in oil trading, refining and public administration. He rose from crude oil trader at Chevron Texaco in the UK to top manager of KMG International, responsible for export, trading and retail sales of petroleum products in Romania, Bulgaria and Singapore. In Kazakhstan, he held key positions in KazMunayGas structure, and from 2023 to 2025 was Deputy Minister of Energy. Having headed the ministry, he is focused on developing export infrastructure, digitalization of energy and strengthening the role of local content in industry projects. As minister, he actively promotes a strategy of national interests in choosing the level of oil production, publicly stating that Kazakhstan will determine production based on internal priorities, rather than strictly following OPEC+ quotas.',
+
+    'person.2.name': 'Timur Kulibayev',
+    'person.2.position': 'Chairman',
+    'person.2.workplace': 'Almex Holding Group',
+    'person.2.reason': 'Rose one position in 2025. Remains one of the key figures in the development of Kazakhstan\'s oil and gas industry and one of the most influential businessmen in the country. He is the beneficiary of dozens of companies in mining, oilfield services and mechanical engineering with a total staff of over 10,000 people. According to Forbes, his fortune together with his spouse is estimated at approximately $5.3 billion. Controls important financial instruments, including Halyk Bank, which remains one of the largest creditors in the oil and gas sector. The growth of private capital influence and expansion of the asset portfolio strengthened his position and ensured upward movement in the ranking. An additional factor is sustainable international contacts, including OPEC countries, as well as strong ties with European investors and deep understanding of the energy system.',
+
+    'person.3.name': 'Beket Izbastin',
+    'person.3.position': 'General Director, Chairman of the Board',
+    'person.3.workplace': 'PSA LLP',
+    'person.3.reason': 'Beket Temirtayevich Izbastin is the General Director and Chairman of the Board of PSA LLP, an authorized organization representing the interests of the Republic of Kazakhstan under production sharing agreements for the Kashagan, Karachaganak and Dunga projects. Under his leadership, PSA implements a strategy to optimize costs on major projects, manages multi-billion budgets and actively defends national interests in relations with international investors. Among the key achievements is the successful launch of the fifth gas reinjection compressor at the Karachaganak field, which increased production efficiency and the level of local content. Also with his participation, PSA is promoting tender procedure reform aimed at increasing participation of Kazakhstani companies in oil and gas contracts.',
   }
 };
 

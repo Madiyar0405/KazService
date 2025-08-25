@@ -84,7 +84,23 @@ import p75 from "@/assets/portraits/p75.jpg";
 
 
 
-// Интерфейс, описывающий структуру данных для каждого участника
+// Функция для получения данных персоны с учетом переводов
+const getPersonData = (person: Person, index: number, t: (key: string) => string) => {
+  const personId = index + 1;
+  const hasTranslation = t(`person.${personId}.name`) !== `person.${personId}.name`;
+  
+  if (hasTranslation) {
+    return {
+      ...person,
+      name: t(`person.${personId}.name`),
+      position: t(`person.${personId}.position`),
+      workplace: t(`person.${personId}.workplace`),
+      reason: t(`person.${personId}.reason`)
+    };
+  }
+  
+  return person;
+};
 interface Person {
   id: number;
   name: string;
@@ -247,31 +263,33 @@ const Ranking: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {paginatedPeople.map((p) => (
+          {paginatedPeople.map((p, index) => {
+            const translatedPerson = getPersonData(p, filteredPeople.indexOf(p), t);
+            return (
             <Dialog key={p.id}>
               <DialogTrigger asChild>
                 <Card className="group cursor-pointer overflow-hidden border-border/60 bg-card hover:shadow-glow-premium transition-all hover-scale">
                   <CardContent className="p-0">
                     <div className="relative aspect-[4/5] overflow-hidden">
                       <img 
-                        src={p.photo} 
-                        alt={`Фото участника ${p.name}`} 
+                        src={translatedPerson.photo} 
+                        alt={`Фото участника ${translatedPerson.name}`} 
                         loading="lazy" 
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                       />
                       <div className="absolute top-3 left-3 z-10 rounded-full bg-background/80 backdrop-blur px-3 py-1 text-sm ring-1 ring-primary/40">
-                        № {p.id}
+                        № {translatedPerson.id}
                       </div>
                       <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-background/90 via-background/40 to-transparent">
                         
     <div className="flex items-center font-semibold text-base lg:text-lg leading-tight">
-      <span>{p.name}</span>
-      {p.trend === 'up' && <ChevronUp className="ml-1.5 h-5 w-5 text-green-500" strokeWidth={3} />}
-      {p.trend === 'down' && <ChevronDown className="ml-1.5 h-5 w-5 text-red-500" strokeWidth={3} />}
+      <span>{translatedPerson.name}</span>
+      {translatedPerson.trend === 'up' && <ChevronUp className="ml-1.5 h-5 w-5 text-green-500" strokeWidth={3} />}
+      {translatedPerson.trend === 'down' && <ChevronDown className="ml-1.5 h-5 w-5 text-red-500" strokeWidth={3} />}
     </div>
 
-                    <div className="text-xs lg:text-sm text-muted-foreground mt-1 leading-snug truncate">{p.position}</div>
-                    <div className="text-xs lg:text-sm text-muted-foreground/80 leading-snug truncate">{p.workplace}</div>
+                    <div className="text-xs lg:text-sm text-muted-foreground mt-1 leading-snug truncate">{translatedPerson.position}</div>
+                    <div className="text-xs lg:text-sm text-muted-foreground/80 leading-snug truncate">{translatedPerson.workplace}</div>
                     <div className="mt-2">
                       <Button variant="premium" size="sm">{t('ranking.modal.details')}</Button>
                     </div>
@@ -282,20 +300,20 @@ const Ranking: React.FC = () => {
               </DialogTrigger>
                 <DialogContent className="max-h-[85vh] overflow-y-auto p-4 sm:p-6">
                   <DialogTitle className="flex items-center text-xl sm:text-2xl">
-                      <span>{p.name}</span>
-                      {p.trend === 'up' && <ChevronUp className="ml-2 h-5 w-5 sm:h-6 sm:w-6 text-green-500" strokeWidth={3} />}
-                      {p.trend === 'down' && <ChevronDown className="ml-2 h-5 w-5 sm:h-6 sm:w-6 text-red-500" strokeWidth={3} />}
+                      <span>{translatedPerson.name}</span>
+                      {translatedPerson.trend === 'up' && <ChevronUp className="ml-2 h-5 w-5 sm:h-6 sm:w-6 text-green-500" strokeWidth={3} />}
+                      {translatedPerson.trend === 'down' && <ChevronDown className="ml-2 h-5 w-5 sm:h-6 sm:w-6 text-red-500" strokeWidth={3} />}
                   </DialogTitle>
                   <DialogDescription className="mt-1 text-sm sm:text-base">
-                      {p.position} {t('ranking.modal.workplacePrefix')} "{p.workplace}"
+                      {translatedPerson.position} {t('ranking.modal.workplacePrefix')} "{translatedPerson.workplace}"
                   </DialogDescription>
                   <div className="text-sm sm:text-base leading-relaxed mt-4">
                       <span className="block text-primary font-semibold mb-1">{t('ranking.modal.reason')}: </span>
-                      {p.reason}
+                      {translatedPerson.reason}
                   </div>
                 </DialogContent>
             </Dialog>
-          ))}
+          )})}
         </div>
 
         {totalPages > 1 && (
