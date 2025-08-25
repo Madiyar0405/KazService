@@ -241,7 +241,7 @@ const Ranking: React.FC = () => {
           </div>
         </Reveal>
 
-        <Reveal delay={0.2}>
+        <Reveal>
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center w-full md:w-auto">
               <Input
@@ -312,7 +312,7 @@ const Ranking: React.FC = () => {
         </Reveal>
 
         {/* Results Grid */}
-        <Reveal delay={0.4}>
+        <Reveal>
           {filteredPeople.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredPeople.map((person, index) => (
