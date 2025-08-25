@@ -102,6 +102,31 @@ const photos = [
 ];
 
 // Исходный массив данных ВСЕХ участников рейтинга с трендами
+const getBasePeople = (t: (key: string) => string): Omit<Person, 'id' | 'photo'>[] => [
+  { 
+    name: t('people.1.name'), 
+    position: t('people.1.position'), 
+    workplace: t('people.1.workplace'), 
+    reason: t('people.1.reason'), 
+    trend: 'up' as const 
+  },
+  { 
+    name: t('people.2.name'), 
+    position: t('people.2.position'), 
+    workplace: t('people.2.workplace'), 
+    reason: t('people.2.reason'), 
+    trend: 'up' as const 
+  },
+  { 
+    name: t('people.3.name'), 
+    position: t('people.3.position'), 
+    workplace: t('people.3.workplace'), 
+    reason: t('people.3.reason'), 
+    trend: 'up' as const 
+  },
+];
+
+// Исходный массив данных ВСЕХ участников рейтинга с трендами (русские данные как fallback)
 const basePeople: Omit<Person, 'id' | 'photo'>[] = [
 
 { name: 'Ерлан Аккенженов', position: 'Министр', workplace: 'Министерство энергетики РК', reason: 'Девятый ежегодный рейтинг на этот раз возглавил Ерлан Аккенженов. С марта 2025 года Ерлан Аккенженов возглавил Министерство энергетики РК. Его карьера охватывает более двух десятилетий в сфере нефтяной торговли, переработки и государственного управления. Он прошёл путь от трейдера сырой нефти в Chevron Texaco в Великобритании до топ-менеджера международной группы KMG International, отвечая за экспорт, трейдинг и розничную реализацию нефтепродуктов в Румынии, Болгарии и Сингапуре. В Казахстане занимал ключевые должности в структуре «КазМунайГаз», а с 2023 по 2025 годы был вице-министром энергетики. Возглавив министерство, сосредоточен на развитии экспортной инфраструктуры, цифровизации энергетики и усилении роли местного содержания в отраслевых проектах. Как министр, он активно продвигает стратегию национальных интересов в выборе уровня добычи нефти, публично заявив, что Казахстан будет определять производство исходя из внутренних приоритетов, а не строго следовать квотам OPEC+', trend: 'up' as const },
@@ -188,7 +213,16 @@ const Ranking: React.FC = () => {
   const itemsPerPage = 12;
 
   const allPeople: Person[] = useMemo(() => {
-    return basePeople.map((person, index) => ({
+    // Получаем переведенные данные для первых 3 человек
+    const translatedPeople = getBasePeople(t);
+    
+    // Комбинируем переведенные данные с оригинальными (начиная с 4-го человека)
+    const combinedPeople = [
+      ...translatedPeople,
+      ...basePeople.slice(3) // Остальные люди пока остаются на русском
+    ];
+    
+    return combinedPeople.map((person, index) => ({
       ...person,
       id: index + 1,
       photo: photos[index % photos.length],
