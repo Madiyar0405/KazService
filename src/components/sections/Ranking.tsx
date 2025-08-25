@@ -287,7 +287,7 @@ const Ranking: React.FC = () => {
                       {p.trend === 'down' && <ChevronDown className="ml-2 h-5 w-5 sm:h-6 sm:w-6 text-red-500" strokeWidth={3} />}
                   </DialogTitle>
                   <DialogDescription className="mt-1 text-sm sm:text-base">
-                      {p.position} в "{p.workplace}"
+                      {p.position} {t('ranking.modal.workplacePrefix')} "{p.workplace}"
                   </DialogDescription>
                   <div className="text-sm sm:text-base leading-relaxed mt-4">
                       <span className="block text-primary font-semibold mb-1">{t('ranking.modal.reason')}: </span>
