@@ -1,13 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { useMouse } from "@uidotdev/usehooks"; // Удобный хук для отслеживания мыши
-import heroImage from "@/assets/hero-top75.jpg";
-import { Button } from "@/components/ui/button";
-import NumberTicker from "@/components/common/NumberTicker";
-import { cn } from "@/lib/utils";
-import { useLanguage } from "@/contexts/LanguageContext";
+import heroImage from "@/assets/hero-top75.jpg"; // Убедитесь, что путь правильный
+import { Button } from "@/components/ui/button"; // Убедитесь, что путь правильный
+import { cn } from "@/lib/utils"; // Убедитесь, что путь правильный
+import { useLanguage } from "@/contexts/LanguageContext"; // Убедитесь, что путь правильный
 
-// --- Компонент частиц (Значительно улучшен) ---
+// --- Компонент частиц ---
 const InteractiveParticles: React.FC = () => {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const mouseRef = useRef({ x: -999, y: -999 });
@@ -149,7 +148,7 @@ const Hero: React.FC = () => {
       <div
         className="absolute inset-0 transition-transform duration-500 ease-out"
         style={{
-          transform: `translateX(${-mouse.x / 80}px) translateY(${-mouse.y / 80}px)`,
+          transform: `translateX(${-glowX / 80}px) translateY(${-glowY / 80}px)`, // Используем glowX/Y для параллакса
         }}
       >
         <img
@@ -178,7 +177,8 @@ const Hero: React.FC = () => {
         </motion.p>
         <motion.h1
           variants={itemVariants}
-          className={cn("text-[12vw] leading-none font-extrabold md:text-8xl tracking-tight", "drop-shadow-2xl")}
+          // Добавлен класс 'text-gold' для золотистого цвета
+          className={cn("text-[12vw] leading-none font-extrabold md:text-8xl tracking-tight text-gold", "drop-shadow-2xl")}
         >
           {t('hero.title')}
         </motion.h1>

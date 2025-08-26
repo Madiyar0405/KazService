@@ -1,3 +1,4 @@
+// tailwind.config.js
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,15 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// *** ДОБАВЬТЕ ЭТОТ БЛОК ***
+				gold: {
+					DEFAULT: '#FFD700', // Яркий золотой
+					dark: '#DAA520',    // Темнее золотой
+					light: '#FFEF96',   // Светлее золотой
+					// Вы можете добавить другие оттенки, если нужно
 				}
+				// *************************
 			},
 			fontFamily: {
 				sans: ['Montserrat', 'Inter', 'ui-sans-serif', 'system-ui'],
