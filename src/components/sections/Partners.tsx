@@ -1,41 +1,64 @@
 import React from "react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Card } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 import partner1 from "@/assets/partners/partner-1.png";
-import partner2 from "@/assets/partners/partner-2.png";
-import partner3 from "@/assets/partners/partner-3.png";
-import partner4 from "@/assets/partners/partner-4.png";
-import partner5 from "@/assets/partners/partner-5.png";
-import partner6 from "@/assets/partners/partner-6.png";
-
-const logos = [partner1, partner2, partner3, partner4, partner5, partner6];
+import Reveal from "@/components/common/Reveal";
 
 const Partners: React.FC = () => {
   const { t } = useLanguage();
-  
+
   return (
-    <section id="partners" className="py-24">
+    <section id="partners" className="py-24 bg-gradient-to-br from-background via-background to-primary/5">
       <div className="container mx-auto px-6">
-        <div className="mb-8 flex items-end justify-between">
-          <h2 className="text-3xl md:text-4xl font-extrabold leading-tight">{t('partners.title')}</h2>
-          <p className="text-muted-foreground">{t('partners.subtitle')}</p>
-        </div>
-        <div className="relative">
-          <Carousel opts={{ align: "start", loop: true }} className="w-full">
-            <CarouselContent className="-ml-2">
-              {logos.concat(logos).map((src, idx) => (
-                <CarouselItem key={idx} className="pl-2 basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/6">
-                  <Card className="flex items-center justify-center h-28 border bg-card/60 hover:shadow-glow-premium transition-shadow">
-                    <img src={src} alt={`Логотип партнёра ${idx + 1}`} loading="lazy" className="max-h-16 object-contain opacity-80 hover:opacity-100 transition-opacity" />
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="bg-background/80 backdrop-blur" />
-            <CarouselNext className="bg-background/80 backdrop-blur" />
-          </Carousel>
-        </div>
+        <Reveal>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+              {t('partners.title')}
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              {t('partners.subtitle')}
+            </p>
+          </div>
+        </Reveal>
+
+        <Reveal>
+          <div className="relative flex items-center justify-center">
+            {/* Background decorative elements */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+            </div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-64 h-64 bg-primary/20 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+            </div>
+
+            {/* Main partner card */}
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 via-primary/10 to-primary/30 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-75 group-hover:opacity-100"></div>
+
+              <div className="relative bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl p-12 md:p-16 shadow-2xl group-hover:shadow-glow-premium transition-all duration-500 hover:scale-105">
+                <div className="flex flex-col items-center text-center space-y-6">
+                  <div className="relative">
+                    <img
+                      src={partner1}
+                      alt={t('partners.mainPartnerAlt')}
+                      className="max-h-24 md:max-h-32 object-contain transition-all duration-500 group-hover:scale-110 drop-shadow-2xl"
+                    />
+                    <div className="absolute -inset-4 bg-primary/20 rounded-full blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
+                  </div>
+
+                  
+
+                  {/* Decorative stats */}
+               
+                </div>
+              </div>
+            </div>
+
+            {/* Floating particles */}
+            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary/40 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+            <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-primary/60 rounded-full animate-bounce" style={{ animationDelay: '1.5s' }}></div>
+            <div className="absolute top-1/2 left-1/6 w-1.5 h-1.5 bg-primary/30 rounded-full animate-bounce" style={{ animationDelay: '2s' }}></div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
