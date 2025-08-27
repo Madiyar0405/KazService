@@ -16,22 +16,22 @@ const translations: Record<Language, Record<string, string>> = {
     // Hero
     'hero.subtitle': 'Девятый ежегодный рейтинг',
     'hero.title': 'ТОП-75',
-    'hero.description': 'ВЛИЯТЕЛЬНЫХ ЛИЦ НЕФТЕГАЗОВОЙ ОТРАСЛИ КАЗАХСТАНА',
+    'hero.description': 'ВЛИЯТЕЛЬНЫХ ЛЮДЕЙ НЕФТЕГАЗОВОЙ ОТРАСЛИ КАЗАХСТАНА',
     'hero.viewRating': 'Смотреть рейтинг',
-    'hero.methodology': 'Методика и тренды',
+    'hero.methodology': 'Методология',
     
-    // Methodology
-    'methodology.title': 'Как мы определяем влияние',
-    'methodology.subtitle': 'Процесс, основанный на данных и экспертизе',
-    'methodology.criteria.evaluation.title': 'Как оценивались участники рейтинга?',
-    'methodology.criteria.evaluation.description': 'Более 20 экспертов оценили 130 кандидатов по влиянию в отрасли, учитывая стоимость и долю компании на рынке, налоги, штат и значимость. Кадровые изменения этого года повлияли на результаты. **Экспертный совет:** 25 аналитиков и ветеранов отрасли анонимно оценивают участников.',
-    'methodology.criteria.experts.title': 'Экспертный совет',
-    'methodology.criteria.experts.description': '25 ведущих аналитиков и ветеранов нефтегазовой отрасли анонимно оценивают кандидатов.',
-    'methodology.criteria.weights.title': 'Весовые коэффициенты',
-    'methodology.criteria.weights.description': 'Более 30 параметров сгруппированы в индексы: финансовое влияние, операционный контроль и стратегическое видение.',
-    'methodology.criteria.result.title': 'Итоговый балл',
-    'methodology.criteria.result.description': 'Результаты объединяются в единый взвешенный рейтинг, определяющий самых влиятельных фигур индустрии.',
+   // Methodology
+    "methodology.title": "Как формировался рейтинг",
+    "methodology.subtitle": "Рейтинг составлен на основе мнений экспертов и представителей нефтегазовой отрасли. Все данные взяты из открытых источников, аналитических материалов и отраслевых публикаций.",
     
+    "methodology.criteria.expertGroup.title": "Экспертная группа",
+    "methodology.criteria.expertGroup.description": "В оценке приняли участие более 15 экспертов: аналитики, журналисты и представители крупных компаний. Им был предложен список из около 110 кандидатов.",
+    
+    "methodology.criteria.keyCriteria.title": "Ключевые критерии",
+    "methodology.criteria.keyCriteria.description": "При формировании рейтинга учитывались рыночная стоимость и капитализация компании, доля на рынке нефтедобычи и переработки, объем уплаченных налогов, численность и квалификация сотрудников, а также значимость проектов для отрасли и страны.",
+
+    "methodology.criteria.assessmentResults.title": "Результаты оценки",
+    "methodology.criteria.assessmentResults.description": "Каждый участник получил отметку о своем статусе: повышение, понижение, новое лицо, сохранил позицию или вернулся в рейтинг.",
     // Ranking
     'ranking.title': 'Рейтинг ТОП-75',
     'ranking.subtitle': 'Самые влиятельные люди нефтегазовой отрасли Казахстана',
@@ -283,7 +283,7 @@ const translations: Record<Language, Record<string, string>> = {
     'person.42.workplace': 'Министерства энергетики РК',
     'person.42.reason': 'Имеет более 25 лет профессионального опыта, из которых значительная часть связана с государственным управлением в нефтегазовой отрасли. Начинала карьеру в научной сфере, затем прошла путь от эксперта до руководителя в различных министерствах: энергетики, индустрии, минеральных ресурсов. Работала в Администрации Президента, а с 2022 года возглавляет аппарат Министерства энергетики, обеспечивая координацию внутренней деятельности ведомства. Обладает высоким уровнем экспертности в вопросах регулирования и стратегического планирования в ТЭК.',
 
-    'person.43.name': 'Хуан СЯНЬСЮН (Huang Xianxiong)',
+    'person.43.name': 'Хуан СЯНЬСЮН',
     'person.43.position': 'Генеральный директор',
     'person.43.workplace': 'CNPC Kazakhstan',
     'person.43.reason': 'Обладает обширным опытом работы в международных проектах CNPC. Ранее возглавлял PetroKazakhstan Inc. и её дочерние структуры, а также занимал пост заместителя генерального директора и главного геолога CNODC – компании, выступающей совладельце Казахстанско-Китайского трубопровода.',
@@ -383,7 +383,7 @@ const translations: Record<Language, Record<string, string>> = {
     'person.62.workplace': 'ТОО "KazPetrol Group"',
     'person.62.reason': 'Оразхан Карсыбеков – председатель совета директоров «KazPetrol Group». Входит в совет директоров нефтегазового подразделения «Kusto Group» и курирует проекты в энергетике. Присоединился к группе в 2005 году как председатель совета директоров KazPetrol Group. Обладает значительным опытом в сфере разведки, бурения и поставок топлива. Под его руководством реализует масштабные инфраструктурные инициативы, включая проект по строительству 35 современных сервисных станций в Казахстане.',
 
-    'person.63.name': 'Дияз Диянов',
+    'person.63.name': 'Диаз Диянов',
     'person.63.position': 'Председатель правления',
     'person.63.workplace': 'ТОО "KMG PetroChem"',
     'person.63.reason': 'С недавних пор он возглавляет компанию, реализующую ключевые газохимические проекты страны. Обладая более чем 20-летним профессиональным опытом, 15 из которых связаны с КазМунайГаз. В составе KMG PetroChem он с 2020 года, а в 2022-м стал заместителем председателя правления по развитию бизнеса. Сегодня под его руководством компания реализует масштабные проекты – газосепарационный комплекс и завод по производству полиэтилена в Атырауской области, что открывает новые возможности для локализации, переработки и экспорта.',
@@ -452,22 +452,23 @@ const translations: Record<Language, Record<string, string>> = {
     // Hero
     'hero.subtitle': 'Ninth Annual Rating',
     'hero.title': 'TOP-75',
-    'hero.description': 'MOST INFLUENTIAL PEOPLE IN KAZAKHSTAN\'S OIL & GAS INDUSTRY',
+    'hero.description': 'INFLUENTIAL PEOPLE IN THE OIL AND GAS INDUSTRY OF KAZAKHSTAN',
     'hero.viewRating': 'View Rating',
-    'hero.methodology': 'Methodology and Trends',
+    'hero.methodology': 'Methodology',
     
     // Methodology
-    'methodology.title': 'How We Determine Influence',
-    'methodology.subtitle': 'Data and expertise-driven process',
-    'methodology.criteria.evaluation.title': 'How were rating participants evaluated?',
-    'methodology.criteria.evaluation.description': 'More than 20 experts evaluated 130 candidates based on industry influence, considering company value and market share, taxes, staff and significance. This year\'s personnel changes affected the results. **Expert Council:** 25 analysts and industry veterans anonymously evaluate participants.',
-    'methodology.criteria.experts.title': 'Expert Council',
-    'methodology.criteria.experts.description': '25 leading analysts and veterans of the oil and gas industry anonymously evaluate candidates.',
-    'methodology.criteria.weights.title': 'Weight Coefficients',
-    'methodology.criteria.weights.description': 'More than 30 parameters are grouped into indices: financial influence, operational control and strategic vision.',
-    'methodology.criteria.result.title': 'Final Score',
-    'methodology.criteria.result.description': 'Results are combined into a single weighted rating that determines the most influential figures in the industry.',
-    
+    "methodology.title": "Methodology",
+    "methodology.subtitle": "The ranking is based on the opinions of experts and representatives of the oil and gas industry. All data was sourced from open sources, analytical reports, and industry publications.",
+
+    "methodology.criteria.expertGroup.title": "Expert Panel",
+    "methodology.criteria.expertGroup.description": "More than 15 experts took part in the evaluation, including analysts, journalists and representatives of major companies. They were provided with a list of about 110 candidates for assessment.",
+
+    "methodology.criteria.keyCriteria.title": "Key Criteria",
+    "methodology.criteria.keyCriteria.description": "The ranking was formed based on the following factors: the market value and capitalization of the company; the company’s share in oil production and refining; the amount of taxes paid; the number and qualification level of employees; the significance of projects for the industry and the country.",
+
+    "methodology.criteria.assessmentResults.title": "Assessment Results",
+    "methodology.criteria.assessmentResults.description": "Each participant received a status mark: moved up, moved down, new entry, retained position, or returned to the ranking.",
+
     // Ranking
     'ranking.title': 'TOP-75 Rating',
     'ranking.subtitle': 'Most influential people in Kazakhstan\'s oil & gas industry',

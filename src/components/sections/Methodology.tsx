@@ -1,40 +1,33 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Parallax } from "@/components/common/Parallax";
-import { Database, Users, Ratio, FileText } from "lucide-react";
+import { Database, Users, FileText } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-// --- Данные для слоев методики ---
+// --- Функция для получения данных с ИСПРАВЛЕННЫМИ ключами ---
 const getMethodologyCriteria = (t: (key: string) => string) => [
   {
-    icon: Database,
-    title: t('methodology.criteria.evaluation.title'),
-    value: "30+",
-    description: t('methodology.criteria.evaluation.description'),
-  },
-  {
     icon: Users,
-    title: t('methodology.criteria.experts.title'),
-    value: "25",
-    description: t('methodology.criteria.experts.description'),
+    // Используем ключ 'expertGroup' из вашего JSON
+    title: t('methodology.criteria.expertGroup.title'),
+    description: t('methodology.criteria.expertGroup.description'),
   },
   {
-    icon: Ratio,
-    title: t('methodology.criteria.weights.title'),
-    value: "30+",
-    description: t('methodology.criteria.weights.description'),
+    icon: Database,
+    // Используем ключ 'keyCriteria' из вашего JSON
+    title: t('methodology.criteria.keyCriteria.title'),
+    description: t('methodology.criteria.keyCriteria.description'),
   },
   {
     icon: FileText,
-    title: t('methodology.criteria.result.title'),
-    value: "ТОП-75",
-    description: t('methodology.criteria.result.description'),
+    // Используем ключ 'assessmentResults' из вашего JSON
+    title: t('methodology.criteria.assessmentResults.title'),
+    description: t('methodology.criteria.assessmentResults.description'),
   },
 ];
 
-// --- Компонент для одного слоя методики ---
-const MethodologyLayer = ({ criterion, index, progress, range }) => {
-  // Трансформация для плавного появления и исчезновения
+// --- Компонент для одного слоя (без изменений) ---
+const MethodologyLayer = ({ criterion, progress, range }) => {
   const opacity = useTransform(progress, range, [0, 1, 1, 0]);
   const y = useTransform(progress, range, [100, 0, 0, -100]);
   const scale = useTransform(progress, range, [0.8, 1, 1, 0.8]);
@@ -57,6 +50,7 @@ const MethodologyLayer = ({ criterion, index, progress, range }) => {
   );
 };
 
+
 // --- Основной компонент Methodology ---
 const Methodology: React.FC = () => {
   const { t } = useLanguage();
@@ -66,45 +60,38 @@ const Methodology: React.FC = () => {
     offset: ["start start", "end end"],
   });
 
-  // Анимация для "заполнения" центральной линии
   const pipelineFill = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  
   const methodologyCriteria = getMethodologyCriteria(t);
 
   return (
-    <section id="method" ref={targetRef} className="relative h-[400vh] bg-background">
-      {/* Фоновый эффект, создающий глубину */}
+    <section id="method" ref={targetRef} className="relative h-[300vh] bg-background">
       <Parallax speed={-0.5}>
-          <div className="absolute inset-0 bg-[url('/path-to-your/rock-texture.png')] bg-repeat opacity-5" />
+        <div className="absolute inset-0 bg-[url('/path-to-your/rock-texture.png')] bg-repeat opacity-5" />
       </Parallax>
       
       <div className="sticky top-0 left-0 flex h-screen items-center justify-center overflow-hidden">
-        {/* Центральная "скважина" / "трубопровод" */}
         <div className="absolute left-1/2 -translate-x-1/2 top-0 h-full w-px bg-white/10">
-            <motion.div 
-                className="h-full w-full bg-gradient-to-b from-primary/0 via-primary to-primary"
-                style={{ height: pipelineFill }}
-            />
+          <motion.div 
+            className="h-full w-full bg-gradient-to-b from-primary/0 via-primary to-primary"
+            style={{ height: pipelineFill }}
+          />
         </div>
 
-        {/* Заголовок секции */}
-        <div className="absolute top-24 text-center">
-            <h2 className="text-3xl md:text-5xl font-extrabold leading-tight">{t('methodology.title')}</h2>
-            <p className="mt-4 text-lg text-muted-foreground">{t('methodology.subtitle')}</p>
+        <div className="absolute top-24 text-center px-4">
+          {/* Эти ключи тоже должны совпадать */}
+          <h2 className="text-3xl md:text-5xl font-extrabold leading-tight">{t('methodology.title')}</h2>
+          <p className="mt-4 text-lg text-muted-foreground max-w-3xl">{t('methodology.subtitle')}</p>
         </div>
 
-        {/* Контейнер для "слоев" методики */}
         <div className="relative w-full flex flex-col items-center">
           {methodologyCriteria.map((criterion, i) => {
             const totalItems = methodologyCriteria.length;
-            // Определяем диапазон скролла, в котором активен текущий элемент
             const start = i / totalItems;
             const end = (i + 1) / totalItems;
             return (
               <MethodologyLayer
                 key={i}
                 criterion={criterion}
-                index={i}
                 progress={scrollYProgress}
                 range={[start, start + 0.05, end - 0.05, end]}
               />
