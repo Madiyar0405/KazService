@@ -57,9 +57,9 @@ const translations: Record<Language, Record<string, string>> = {
     'ranking.noResultsDesc': 'Попробуйте изменить критерии поиска',
     
     // Partners
-    // Partners
-    'partners.title': 'Партнёр',
-    'partners.subtitle': 'Поддержка проекта',
+    
+    'partners.title': 'Партнер',
+    'partners.subtitle': 'Партнер по рейтингу',
     'partners.mainPartnerAlt': 'Главный партнёр',
     'partners.strategicPartner': 'Стратегический партнёр',
     'partners.strategicPartnerDescription': 'Наш ключевой партнёр в реализации рейтинга ТОП-75',
@@ -496,7 +496,7 @@ const translations: Record<Language, Record<string, string>> = {
 
       // Partners
     'partners.title': 'Partner',
-    'partners.subtitle': 'Project support',
+    'partners.subtitle': 'Rating partner',
     'partners.mainPartnerAlt': 'Main partner',
     'partners.strategicPartner': 'Strategic Partner',
     'partners.strategicPartnerDescription': 'Our key partner in the implementation of the TOP-75 rating',
