@@ -113,13 +113,13 @@ const Hero: React.FC = () => {
         href="https://t.me/kazservice" // <-- ЗАМЕНИТЕ НА ВАШУ ССЫЛКУ
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Подписаться в наш Telegram канал"
+        aria-label="Смотреть в Telegram"
         variants={itemVariants}
         className="fixed top-6 left-6 z-50 flex items-center gap-4 text-foreground/80 transition-all duration-300 hover:scale-105 hover:text-primary md:top-8 md:left-8"
       >
         <FaTelegramPlane className="h-8 w-8" />
         <span className="hidden text-lg font-semibold md:inline">
-          Подписаться в Telegram
+          Смотреть в Telegram
         </span>
       </motion.a>
 
