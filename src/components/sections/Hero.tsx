@@ -108,18 +108,19 @@ const Hero: React.FC = () => {
       animate="visible"
       variants={containerVariants}
     >
-      {/* --- ИЗМЕНЕННАЯ ИКОНКА TELEGRAM --- */}
+      {/* --- УВЕЛИЧЕННАЯ ИКОНКА И ТЕКСТ TELEGRAM --- */}
       <motion.a
         href="https://t.me/kazservice" // <-- ЗАМЕНИТЕ НА ВАШУ ССЫЛКУ
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Наш Telegram канал"
+        aria-label="Подписаться в наш Telegram канал"
         variants={itemVariants}
-        // Было: "absolute top-6 right-6 z-30..."
-        // Стало: "fixed top-6 left-6 z-50..."
-        className="fixed top-6 left-6 z-50 md:top-8 md:left-8"
+        className="fixed top-6 left-6 z-50 flex items-center gap-4 text-foreground/80 transition-all duration-300 hover:scale-105 hover:text-primary md:top-8 md:left-8"
       >
-        <FaTelegramPlane className="h-8 w-8 text-foreground/80 transition-all duration-300 hover:scale-110 hover:text-primary" />
+        <FaTelegramPlane className="h-8 w-8" />
+        <span className="hidden text-lg font-semibold md:inline">
+          Подписаться в Telegram
+        </span>
       </motion.a>
 
       {/* Улучшенный фон с параллаксом */}
