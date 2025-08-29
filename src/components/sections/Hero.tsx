@@ -1,12 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { useMouse } from "@uidotdev/usehooks"; // Удобный хук для отслеживания мыши
-import heroImage from "@/assets/hero-top75.jpg"; // Убедитесь, что путь правильный
-import { Button } from "@/components/ui/button"; // Убедитесь, что путь правильный
-import { cn } from "@/lib/utils"; // Убедитесь, что путь правильный
-import { useLanguage } from "@/contexts/LanguageContext"; // Убедитесь, что путь правильный
+import { useMouse } from "@uidotdev/usehooks";
+import heroImage from "@/assets/hero-top75.jpg";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { FaTelegramPlane } from "react-icons/fa"; // Импорт иконки
 
-// --- Компонент частиц ---
+// --- Компонент частиц (остается без изменений) ---
 const InteractiveParticles: React.FC = () => {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const mouseRef = useRef({ x: -999, y: -999 });
@@ -20,8 +21,8 @@ const InteractiveParticles: React.FC = () => {
 
         const particleSettings = {
             count: Math.max(60, Math.floor((w * h) / 15000)),
-            mouseRadius: 150, // Радиус взаимодействия с мышью
-            restitution: 0.1, // "Отскакивание" от курсора
+            mouseRadius: 150,
+            restitution: 0.1,
         };
 
         const createParticles = () => {
@@ -30,8 +31,8 @@ const InteractiveParticles: React.FC = () => {
                 particles.push({
                     x: Math.random() * w,
                     y: Math.random() * h,
-                    ox: Math.random() * w, // Исходная позиция X
-                    oy: Math.random() * h, // Исходная позиция Y
+                    ox: Math.random() * w,
+                    oy: Math.random() * h,
                     vx: (Math.random() - 0.5) * 0.4,
                     vy: (Math.random() - 0.5) * 0.4,
                     size: Math.random() * 1.5 + 1,
@@ -42,63 +43,39 @@ const InteractiveParticles: React.FC = () => {
 
         const animate = () => {
             ctx.clearRect(0, 0, w, h);
-
             const mouse = mouseRef.current;
-            
             for (const p of particles) {
-                // Взаимодействие с мышью
                 const dx = p.x - mouse.x;
                 const dy = p.y - mouse.y;
                 const dist = Math.hypot(dx, dy);
-
                 if (dist < particleSettings.mouseRadius) {
                     const angle = Math.atan2(dy, dx);
                     const force = (particleSettings.mouseRadius - dist) * particleSettings.restitution;
                     p.x += Math.cos(angle) * force;
                     p.y += Math.sin(angle) * force;
                 }
-
-                // Возвращение к исходной позиции
                 p.x += (p.ox - p.x) * 0.005;
                 p.y += (p.oy - p.y) * 0.005;
-                
-                // Движение
                 p.x += p.vx;
                 p.y += p.vy;
-
-                // Отскок от краев
                 if (p.x < 0 || p.x > w) p.vx *= -1;
                 if (p.y < 0 || p.y > h) p.vy *= -1;
-
-                // Отрисовка
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
                 ctx.fillStyle = p.color;
                 ctx.fill();
             }
-
             requestAnimationFrame(animate);
         };
 
-        const handleMouseMove = (e: MouseEvent) => {
-            mouseRef.current = { x: e.clientX, y: e.clientY };
-        };
-
-        const handleResize = () => {
-            w = canvas.width = window.innerWidth;
-            h = canvas.height = window.innerHeight;
-            createParticles();
-        };
+        const handleMouseMove = (e: MouseEvent) => { mouseRef.current = { x: e.clientX, y: e.clientY }; };
+        const handleResize = () => { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; createParticles(); };
 
         createParticles();
         animate();
         window.addEventListener('mousemove', handleMouseMove);
         window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
-            window.removeEventListener('resize', handleResize);
-        };
+        return () => { window.removeEventListener('mousemove', handleMouseMove); window.removeEventListener('resize', handleResize); };
     }, []);
 
     return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />;
@@ -110,27 +87,14 @@ const Hero: React.FC = () => {
   const [mouse, ref] = useMouse();
   const { t } = useLanguage();
 
-  // Настройки для анимаций Framer Motion
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2, // Анимация дочерних элементов по очереди
-        delayChildren: 0.3,
-      },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.3 } },
   };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-      },
-    },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.6 } },
   };
 
   const glowX = mouse.x ?? -9999;
@@ -144,12 +108,24 @@ const Hero: React.FC = () => {
       animate="visible"
       variants={containerVariants}
     >
-      {/* Улучшенный фон с параллаксом и анимированным градиентом */}
+      {/* --- ИЗМЕНЕННАЯ ИКОНКА TELEGRAM --- */}
+      <motion.a
+        href="https://t.me/kazservice" // <-- ЗАМЕНИТЕ НА ВАШУ ССЫЛКУ
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Наш Telegram канал"
+        variants={itemVariants}
+        // Было: "absolute top-6 right-6 z-30..."
+        // Стало: "fixed top-6 left-6 z-50..."
+        className="fixed top-6 left-6 z-50 md:top-8 md:left-8"
+      >
+        <FaTelegramPlane className="h-8 w-8 text-foreground/80 transition-all duration-300 hover:scale-110 hover:text-primary" />
+      </motion.a>
+
+      {/* Улучшенный фон с параллаксом */}
       <div
         className="absolute inset-0 transition-transform duration-500 ease-out"
-        style={{
-          transform: `translateX(${-glowX / 80}px) translateY(${-glowY / 80}px)`, // Используем glowX/Y для параллакса
-        }}
+        style={{ transform: `translateX(${-glowX / 80}px) translateY(${-glowY / 80}px)` }}
       >
         <img
           src={heroImage}
@@ -159,16 +135,12 @@ const Hero: React.FC = () => {
         />
       </div>
       
-      {/* Компонент с частицами */}
       <InteractiveParticles />
       
-      {/* Градиент, следующий за курсором */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 transition-opacity duration-300"
-        style={{
-          background: `radial-gradient(800px circle at ${glowX}px ${glowY}px, hsl(var(--primary) / 0.1), transparent 50%)`,
-        }}
+        style={{ background: `radial-gradient(800px circle at ${glowX}px ${glowY}px, hsl(var(--primary) / 0.1), transparent 50%)` }}
       />
       
       <div className="relative z-10 container mx-auto px-6 py-24 text-center flex flex-col items-center">
@@ -177,7 +149,6 @@ const Hero: React.FC = () => {
         </motion.p>
         <motion.h1
           variants={itemVariants}
-          // Добавлен класс 'text-gold' для золотистого цвета
           className={cn("text-[12vw] leading-none font-extrabold md:text-8xl tracking-tight text-gold", "drop-shadow-2xl")}
         >
           {t('hero.title')}
@@ -196,7 +167,6 @@ const Hero: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Виньетка для плавного перехода к фону */}
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent"></div>
     </motion.header>
   );
